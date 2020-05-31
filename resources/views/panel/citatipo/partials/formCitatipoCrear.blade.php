@@ -1,0 +1,40 @@
+<div id="responsive-modal-create" class="modal fade" tabindex="-1" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 style="width: 90%; float: left;">Registro de Nuevo Tipo de Cita</h4>
+                <div id="cargando" style="display: none; width: 10%; float: left;">
+                    <img src="{{ asset('images/loading.gif') }}" style="width: 35px; height: 35px;"/>
+                </div>
+            </div>
+            <div class="modal-body">
+                
+                <div id="msj-error" class="alert alert-warning alert-dismissable" role="alert" style="display:none;">
+                    <ul id="msj"></ul>
+                </div>
+
+                <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {!! Form::label("nombre", 'Nombre') !!}
+                            {!! Form::text('nombre', null, ['class' => 'form-control', 'placeholder' => 'Nombre', 'id' => 'nombre']) !!}
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            {!! Form::label("color", 'Color') !!}
+                            {!! Form::text('color', null, ['class' => 'form-control', 'id' => 'inputColor']) !!}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="cancelar">Cancelar</button>
+                {!! link_to('#', $title="Crear", $attributes = ['id' => 'registro', 'class' => 'btn btn-primary'], $secure = null) !!}
+            </div>
+        </div>
+    </div>
+</div>
